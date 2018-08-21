@@ -4,9 +4,9 @@
  * @file site_alert.js
  */
 
-(function ($) {
+(function ($, Drupal, drupalSettings) {
 
-var basePath;
+  var basePath;
 
   Drupal.behaviors.siteAlert = {
     attach: function(context, settings) {
@@ -34,4 +34,4 @@ var basePath;
 
   }
 
-})(jQuery);
+})(jQuery, Drupal, drupalSettings);
