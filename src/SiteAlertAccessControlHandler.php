@@ -15,10 +15,10 @@ class SiteAlertAccessControlHandler extends EntityAccessControlHandler {
   protected function checkAccess(EntityInterface $entity, $operation, AccountInterface $account) {
     switch ($operation) {
       case 'update':
-        return AccessResult::allowedIfHasPermission($account, 'update site alert');
+        return AccessResult::allowedIfHasPermission($account, 'update site alerts');
 
       case 'delete':
-        return AccessResult::allowedIfHasPermission($account, 'delete site alert');
+        return AccessResult::allowedIfHasPermission($account, 'delete site alerts');
     }
 
     return AccessResult::allowed();
@@ -28,7 +28,7 @@ class SiteAlertAccessControlHandler extends EntityAccessControlHandler {
    * {@inheritdoc}
    */
   protected function checkCreateAccess(AccountInterface $account, array $context, $entity_bundle = NULL) {
-    return AccessResult::allowedIfHasPermission($account, 'add site alert');
+    return AccessResult::allowedIfHasPermission($account, 'add site alerts');
   }
 
 }

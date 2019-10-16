@@ -4,7 +4,7 @@ entity.site_alert.collection:
     _entity_list: 'site_alert'
     _title: 'Site Alert list'
   requirements:
-    _permission: 'view any site_alert entity'
+    _permission: 'administer site alert'
 
 entity.site_alert.add_form:
   path: '/admin/config/system/site-alerts/add'
