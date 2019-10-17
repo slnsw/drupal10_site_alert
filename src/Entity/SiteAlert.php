@@ -8,6 +8,8 @@ use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Datetime\DrupalDateTime;
 
 /**
+ * Implements SiteAlert class.
+ *
  * @ContentEntityType(
  *   id = "site_alert",
  *   label = @Translation("Site Alert"),
@@ -139,7 +141,11 @@ class SiteAlert extends ContentEntityBase {
 
     $fields['severity'] = BaseFieldDefinition::create('list_string')
       ->setLabel(t('Severity'))
-      ->setSetting('allowed_values', ['low' => 'Low', 'medium' => 'Medium', 'high' => 'High'])
+      ->setSetting('allowed_values', [
+        'low' => 'Low',
+        'medium' => 'Medium',
+        'high' => 'High',
+      ])
       ->setDisplayOptions('form', [
         'type' => 'options_select',
         'weight' => 2,

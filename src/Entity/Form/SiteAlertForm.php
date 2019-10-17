@@ -5,6 +5,9 @@ namespace Drupal\site_alert\Entity\Form;
 use Drupal\Core\Entity\ContentEntityForm;
 use Drupal\Core\Form\FormStateInterface;
 
+/**
+ * Implements SiteAlertForm class.
+ */
 class SiteAlertForm extends ContentEntityForm {
 
   /**

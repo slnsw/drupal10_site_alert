@@ -6,8 +6,14 @@ use Drupal\Core\Controller\ControllerBase;
 use Drupal\site_alert\Entity\SiteAlert;
 use Symfony\Component\HttpFoundation\Response;
 
+/**
+ * Implements SiteAlertController class.
+ */
 class SiteAlertController extends ControllerBase {
 
+  /**
+   * {@inheritdoc}
+   */
   public function getUpdatedAlerts() {
     \Drupal::service('page_cache_kill_switch')->trigger();
 

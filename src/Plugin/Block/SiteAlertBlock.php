@@ -6,6 +6,8 @@ use Drupal\Core\Block\BlockBase;
 use Drupal\site_alert\Entity\SiteAlert;
 
 /**
+ * Implements SiteAlertBlock class.
+ *
  * @Block(
  *   id = "site_alert_block",
  *   admin_label = @Translation("Site Alert"),

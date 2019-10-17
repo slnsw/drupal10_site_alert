@@ -5,6 +5,9 @@ namespace Drupal\site_alert;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Entity\EntityListBuilder;
 
+/**
+ * Implements SiteAlertListBuilder class.
+ */
 class SiteAlertListBuilder extends EntityListBuilder {
 
   /**

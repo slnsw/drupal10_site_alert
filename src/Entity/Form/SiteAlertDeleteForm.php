@@ -6,6 +6,9 @@ use Drupal\Core\Entity\ContentEntityConfirmFormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Url;
 
+/**
+ * Implements SiteAlertDeleteForm class.
+ */
 class SiteAlertDeleteForm extends ContentEntityConfirmFormBase {
 
   /**

@@ -10,7 +10,6 @@
 
 define('SITE_ALERT_TIMEOUT_DEFAULT', 300);
 
-use Drupal\Core\Datetime\DrupalDateTime;
 use Drupal\Core\Routing\RouteMatchInterface;
 
 /**

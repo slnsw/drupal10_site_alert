@@ -1,7 +1,6 @@
 /**
+ * @file
  * Contains javascript to refresh alert div contents.
- *
- * @file site_alert.js
  */
 
 (function ($, Drupal, drupalSettings) {
@@ -9,7 +8,7 @@
   var basePath;
 
   Drupal.behaviors.siteAlert = {
-    attach: function(context, settings) {
+    attach: function (context, settings) {
       basePath = settings.path.baseUrl;
       loadAlert($('.site-alert', context));
     }
@@ -29,7 +28,7 @@
 
     // Update content at configured interval.
     if (drupalSettings.siteAlert.timeout > 0) {
-      setTimeout(function() { loadAlert(siteAlert) }, drupalSettings.siteAlert.timeout * 1000);
+      setTimeout(function () { loadAlert(siteAlert) }, drupalSettings.siteAlert.timeout * 1000);
     }
 
   }
