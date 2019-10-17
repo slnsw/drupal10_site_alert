@@ -55,13 +55,6 @@ class SiteAlert extends ContentEntityBase {
   /**
    * {@inheritdoc}
    */
-  public function getLabel() {
-    return $this->get('label')->value;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
   public function getMessage() {
     return $this->get('message')->value;
   }

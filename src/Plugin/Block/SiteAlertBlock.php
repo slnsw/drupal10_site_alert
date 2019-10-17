@@ -27,6 +27,7 @@ class SiteAlertBlock extends BlockBase {
           '#theme' => 'site_alert',
           '#alert' => [
             'severity' => $alert->getSeverity(),
+            'label' => $alert->getLabel(),
             'message' => [
               '#type' => 'markup',
               '#markup' => $alert->getMessage(),

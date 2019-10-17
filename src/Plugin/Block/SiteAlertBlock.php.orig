@@ -1,22 +1,24 @@
 <?php
 
-namespace Drupal\site_alert\Controller;
+namespace Drupal\site_alert\Plugin\Block;
 
-use Drupal\Core\Controller\ControllerBase;
+use Drupal\Core\Block\BlockBase;
 use Drupal\site_alert\Entity\SiteAlert;
-use Symfony\Component\HttpFoundation\Response;
 
 /**
- * Implements SiteAlertController class.
+ * Implements SiteAlertBlock class.
+ *
+ * @Block(
+ *   id = "site_alert_block",
+ *   admin_label = @Translation("Site Alert"),
+ * )
  */
-class SiteAlertController extends ControllerBase {
+class SiteAlertBlock extends BlockBase {
 
   /**
    * {@inheritdoc}
    */
-  public function getUpdatedAlerts() {
-    \Drupal::service('page_cache_kill_switch')->trigger();
-
+  public function build() {
     $build = [];
 
     foreach (SiteAlert::loadMultiple() as $alert) {
@@ -25,7 +27,6 @@ class SiteAlertController extends ControllerBase {
           '#theme' => 'site_alert',
           '#alert' => [
             'severity' => $alert->getSeverity(),
-            'label' => $alert->getLabel(),
             'message' => [
               '#type' => 'markup',
               '#markup' => $alert->getMessage(),
@@ -33,16 +34,24 @@ class SiteAlertController extends ControllerBase {
           ],
           '#attached' => [
             'library' => ['site_alert/drupal.site_alert'],
+            'drupalSettings' => [
+              'siteAlert' => [
+                'timeout' => SITE_ALERT_TIMEOUT_DEFAULT,
+              ],
+            ],
           ],
         ];
       }
     }
 
-    $html = \Drupal::service('renderer')->renderRoot($build);
-    $response = new Response();
-    $response->setContent($html);
+    if (!empty($build)) {
+      $build['#prefix'] = '<div class="site-alert">';
+      $build['#suffix'] = '</div>';
+    }
 
-    return $response;
+    $build['#cache']['max-age'] = 0;
+
+    return $build;
   }
 
 }
