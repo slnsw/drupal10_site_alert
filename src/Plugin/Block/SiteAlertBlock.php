@@ -4,6 +4,7 @@ namespace Drupal\site_alert\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
 use Drupal\site_alert\Entity\SiteAlert;
+use Drupal\Core\Cache\Cache;
 
 /**
  * Implements SiteAlertBlock class.
@@ -53,6 +54,13 @@ class SiteAlertBlock extends BlockBase {
     $build['#cache']['max-age'] = 0;
 
     return $build;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getCacheTags() {
+    return Cache::mergeTags(parent::getCacheTags(), ['site_alert_block']);
   }
 
 }

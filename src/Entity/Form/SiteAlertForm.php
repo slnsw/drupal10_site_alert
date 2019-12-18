@@ -28,6 +28,8 @@ class SiteAlertForm extends ContentEntityForm {
     $status = $entity->save();
 
     $form_state->setRedirect('entity.site_alert.collection');
+
+    \Drupal::service('cache_tags.invalidator')->invalidateTags(['site_alert_block']);
   }
 
 }
