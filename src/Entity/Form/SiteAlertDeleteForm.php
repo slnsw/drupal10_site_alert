@@ -5,6 +5,7 @@ namespace Drupal\site_alert\Entity\Form;
 use Drupal\Core\Entity\ContentEntityConfirmFormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Url;
+use Drupal\Core\Messenger\MessengerInterface;
 
 /**
  * Implements SiteAlertDeleteForm class.
@@ -38,7 +39,7 @@ class SiteAlertDeleteForm extends ContentEntityConfirmFormBase {
   public function submitForm(array &$form, FormStateInterface $form_state) {
     $this->entity->delete();
 
-    drupal_set_message($this->t('The Site Alert @label has been deleted.', ['@label' => $this->entity->label()]));
+    $this->messenger()->addWarning($this->t('The Site Alert @label has been deleted.', ['@label' => $this->entity->label()]));
 
     $form_state->setRedirectUrl($this->getCancelUrl());
 
