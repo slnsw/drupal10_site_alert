@@ -14,8 +14,7 @@ class SiteAlertForm extends ContentEntityForm {
    * {@inheritdoc}
    */
   public function save(array $form, FormStateInterface $form_state) {
-    $entity = $this->entity;
-    $status = $entity->save();
+    parent::save($form, $form_state);
 
     $form_state->setRedirect('entity.site_alert.collection');
 
