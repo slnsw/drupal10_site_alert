@@ -1,0 +1,4 @@
+services:
+  site_alert.get_alerts:
+    class: Drupal\site_alert\GetAlerts
+    arguments: ['@entity_type.manager']
