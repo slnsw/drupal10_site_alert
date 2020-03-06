@@ -22,6 +22,11 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 class SiteAlertBlock extends BlockBase implements ContainerFactoryPluginInterface {
 
   /**
+   * The default timeout for refreshing site alerts.
+   */
+  const TIMEOUT_DEFAULT = 300;
+
+  /**
    * The entity type manager.
    *
    * @var \Drupal\Core\Entity\EntityTypeManagerInterface
@@ -125,7 +130,7 @@ class SiteAlertBlock extends BlockBase implements ContainerFactoryPluginInterfac
    */
   public function defaultConfiguration() {
     return [
-      'timeout' => SITE_ALERT_TIMEOUT_DEFAULT,
+      'timeout' => self::TIMEOUT_DEFAULT,
     ] + parent::defaultConfiguration();
   }
 
