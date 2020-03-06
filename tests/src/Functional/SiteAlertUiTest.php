@@ -68,7 +68,12 @@ class SiteAlertUiTest extends SiteAlertTestBase {
 
     // Place block.
     $block_id = strtolower($this->randomMachineName(8));
-    $this->drupalPlaceBlock('site_alert_block', ['id' => $block_id]);
+    $this->drupalPlaceBlock('site_alert_block', [
+      'id' => $block_id,
+      // Disable the JS timeout, we cannot test JS behavior in a browser test.
+      // This functionality is tested in SiteAlertTimeoutTest.
+      'timeout' => 0,
+    ]);
 
     // Checks that the block containing the alert is displayed on the frontpage.
     $this->drupalGet('<front>');

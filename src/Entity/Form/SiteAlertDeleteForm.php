@@ -42,8 +42,6 @@ class SiteAlertDeleteForm extends ContentEntityConfirmFormBase {
     $this->messenger()->addWarning($this->t('The Site Alert @label has been deleted.', ['@label' => $this->entity->label()]));
 
     $form_state->setRedirectUrl($this->getCancelUrl());
-
-    \Drupal::service('cache_tags.invalidator')->invalidateTags(['site_alert_block']);
   }
 
 }

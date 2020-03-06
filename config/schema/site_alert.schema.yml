@@ -1,0 +1,7 @@
+block.settings.site_alert_block:
+  type: block_settings
+  label: 'Site alerts block'
+  mapping:
+    timeout:
+      type: integer
+      label: 'AJAX refresh timeout'
