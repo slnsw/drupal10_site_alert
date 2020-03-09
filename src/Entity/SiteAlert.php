@@ -72,7 +72,7 @@ class SiteAlert extends ContentEntityBase {
   public function getStartTime() {
     if ($start_time = $this->get('scheduling')->value) {
       $date = new DrupalDateTime($start_time, 'UTC');
-      return $date->format('Y-m-d H:i:s', ['timezone' => drupal_get_user_timezone()]);
+      return $date->format('Y-m-d H:i:s', ['timezone' => date_default_timezone_get()]);
     }
 
     return '';
@@ -84,7 +84,7 @@ class SiteAlert extends ContentEntityBase {
   public function getEndTime() {
     if ($end_time = $this->get('scheduling')->end_value) {
       $date = new DrupalDateTime($end_time, 'UTC');
-      return $date->format('Y-m-d H:i:s', ['timezone' => drupal_get_user_timezone()]);
+      return $date->format('Y-m-d H:i:s', ['timezone' => date_default_timezone_get()]);
     }
 
     return '';

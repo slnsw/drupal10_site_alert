@@ -55,7 +55,7 @@ class SiteAlertListBuilder extends EntityListBuilder {
   public function buildRow(EntityInterface $entity) {
     $row = [
       'active' => ($entity->getActive()) ? t('Active') : t('Not Active'),
-      'label' => $this->getLabel($entity),
+      'label' => $entity->label(),
       'message' => check_markup($entity->get('message')->value, $entity->get('message')->format),
       'scheduling__value' => $entity->getStartTime(),
       'scheduling__end_value' => $entity->getEndTime(),
