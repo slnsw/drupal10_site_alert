@@ -55,7 +55,7 @@ class SiteAlertUiTest extends SiteAlertTestBase {
     // Check that the empty text is shown when no site alerts have been created.
     $this->drupalGet('admin/config/system/site-alerts');
     $assert->statusCodeEquals(200);
-    $assert->pageTextContains('There are no site alert entities yet.');
+    $assert->pageTextContains('There are no site alerts yet.');
 
     // Creating new alert.
     $this->drupalGet('admin/config/system/site-alerts/add');

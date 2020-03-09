@@ -13,6 +13,13 @@ use Drupal\Core\Datetime\DrupalDateTime;
  * @ContentEntityType(
  *   id = "site_alert",
  *   label = @Translation("Site Alert"),
+ *   label_collection = @Translation("Site Alerts"),
+ *   label_singular = @Translation("site alert"),
+ *   label_plural = @Translation("site alerts"),
+ *   label_count = @PluralTranslation(
+ *     singular = "@count site alert",
+ *     plural = "@count site alerts",
+ *   ),
  *   handlers = {
  *     "list_builder" = "Drupal\site_alert\SiteAlertListBuilder",
  *     "form" = {
@@ -22,6 +29,9 @@ use Drupal\Core\Datetime\DrupalDateTime;
  *       "delete" = "Drupal\site_alert\Entity\Form\SiteAlertDeleteForm",
  *     },
  *     "access" = "Drupal\site_alert\SiteAlertAccessControlHandler",
+ *     "route_provider" = {
+ *       "html" = "Drupal\Core\Entity\Routing\AdminHtmlRouteProvider",
+ *     },
  *   },
  *   base_table = "site_alerts",
  *   admin_permission = "administer site alert",
@@ -31,8 +41,10 @@ use Drupal\Core\Datetime\DrupalDateTime;
  *     "uuid" = "uuid",
  *   },
  *   links = {
- *     "edit-form" = "/admin/site_alert/{site_alert}/edit",
- *     "delete-form" = "/admin/site_alert/{site_alert}/delete"
+ *     "collection" = "/admin/config/system/site-alerts",
+ *     "add-form" = "/admin/config/system/site-alerts/add",
+ *     "edit-form" = "/admin/config/system/site-alerts/{site_alert}/edit",
+ *     "delete-form" = "/admin/config/system/site-alerts/{site_alert}/delete",
  *   },
  * )
  */
