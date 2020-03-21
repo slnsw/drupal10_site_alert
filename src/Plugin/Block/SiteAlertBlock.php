@@ -116,7 +116,7 @@ class SiteAlertBlock extends BlockBase implements ContainerFactoryPluginInterfac
     }
 
     if (!empty($build)) {
-      $build['#prefix'] = '<div class="site-alert">';
+      $build['#prefix'] = '<div class="site-alert" aria-live="polite">';
       $build['#suffix'] = '</div>';
     }
 
