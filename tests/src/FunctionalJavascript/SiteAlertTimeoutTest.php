@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\Tests\block\FunctionalJavascript;
+namespace Drupal\Tests\site_alert\FunctionalJavascript;
 
 use Drupal\Core\Datetime\DrupalDateTime;
 use Drupal\datetime\Plugin\Field\FieldType\DateTimeItemInterface;
