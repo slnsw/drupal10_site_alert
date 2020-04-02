@@ -2,3 +2,8 @@ services:
   site_alert.get_alerts:
     class: Drupal\site_alert\GetAlerts
     arguments: ['@entity_type.manager']
+  cache_context.active_site_alerts:
+    class: Drupal\site_alert\Cache\Context\ActiveSiteAlertsCacheContext
+    arguments: ['@entity_type.manager', '@site_alert.get_alerts', '@private_key']
+    tags:
+      - { name: cache.context}

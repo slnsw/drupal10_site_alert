@@ -32,6 +32,7 @@ use Drupal\Core\Datetime\DrupalDateTime;
  *     "route_provider" = {
  *       "html" = "Drupal\Core\Entity\Routing\AdminHtmlRouteProvider",
  *     },
+ *     "storage" = "Drupal\site_alert\SiteAlertStorage",
  *   },
  *   base_table = "site_alerts",
  *   admin_permission = "administer site alert",

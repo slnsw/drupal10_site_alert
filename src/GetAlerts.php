@@ -32,12 +32,10 @@ class GetAlerts implements GetAlertsInterface {
   /**
    * {@inheritdoc}
    */
-  public function getActiveAlerts() {
-    $storage = $this->entityTypeManager->getStorage('site_alert');
-
+  public function getActiveAlertIds() {
     $now = $this->dateNow();
 
-    $query = $storage->getQuery();
+    $query = $this->getStorage()->getQuery();
 
     $start_value = $query
       ->orConditionGroup()
@@ -54,10 +52,17 @@ class GetAlerts implements GetAlertsInterface {
       ->condition($start_value)
       ->condition($end_value);
 
-    $result = $query->execute();
+    return $query->execute();
+  }
 
-    if (!empty($result)) {
-      return $storage->loadMultiple($result);
+  /**
+   * {@inheritdoc}
+   */
+  public function getActiveAlerts() {
+    $ids = $this->getActiveAlertIds();
+
+    if (!empty($ids)) {
+      return $this->getStorage()->loadMultiple($ids);
     }
 
     return [];
@@ -73,6 +78,16 @@ class GetAlerts implements GetAlertsInterface {
     $now = new DrupalDateTime();
     $now->setTimezone(new DateTimeZone(DateTimeItemInterface::STORAGE_TIMEZONE));
     return $now->format(DateTimeItemInterface::DATETIME_STORAGE_FORMAT);
+  }
+
+  /**
+   * Returns the entity storage for site alert entities.
+   *
+   * @return \Drupal\Core\Entity\EntityStorageInterface
+   *   The entity storage.
+   */
+  protected function getStorage() {
+    return $this->entityTypeManager->getStorage('site_alert');
   }
 
 }

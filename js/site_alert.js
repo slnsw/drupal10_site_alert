@@ -24,6 +24,16 @@
 
   Drupal.behaviors.siteAlert = {
     attach: function (context, settings) {
+      // Work around a core bug that prevents cached pages from being
+      // invalidated in time for scheduled alerts to appear. Immediately load
+      // the alerts.
+      // @todo Remove this workaround once the bug is fixed.
+      // @see https://www.drupal.org/project/site_alert/issues/3121988
+      if (drupalSettings.siteAlert.workaround_needed) {
+        callback = settings.path.baseUrl + 'ajax/site_alert';
+        loadAlert($('.site-alert', context));
+      }
+
       // Update content at configured interval.
       if (drupalSettings.siteAlert.timeout > 0) {
         callback = settings.path.baseUrl + 'ajax/site_alert';
