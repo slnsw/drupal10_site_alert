@@ -4,3 +4,5 @@ site_alert.ajax:
     _controller: '\Drupal\site_alert\Controller\SiteAlertController::getUpdatedAlerts'
   requirements:
     _access: 'TRUE'
+  options:
+    _maintenance_access: 'TRUE'
