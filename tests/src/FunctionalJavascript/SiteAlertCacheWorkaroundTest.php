@@ -60,7 +60,7 @@ class SiteAlertCacheWorkaroundTest extends SiteAlertWebDriverTestBase {
     // responsible for refreshing the alerts should be loaded in the page.
     $this->assertJavaScriptPresent();
 
-    // Refresh the page for a few seconds until the alert appears. Thanks to the
+    // Check that the alert appears within a few seconds. Thanks to the
     // workaround this will work regardless of the fact that the page is cached.
     $this->assertSiteAlertAppears('Scheduled alert');
 
