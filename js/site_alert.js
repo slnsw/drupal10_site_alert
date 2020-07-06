@@ -17,9 +17,11 @@
     };
     siteAlert.load(callback, options);
 
-    setTimeout(function () {
-      loadAlert(siteAlert);
-    }, drupalSettings.siteAlert.timeout * 1000);
+    if (drupalSettings.siteAlert.timeout > 0) {
+      setTimeout(function () {
+        loadAlert(siteAlert);
+      }, drupalSettings.siteAlert.timeout * 1000);
+    }
   };
 
   Drupal.behaviors.siteAlert = {

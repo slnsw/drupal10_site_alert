@@ -8,3 +8,4 @@ drupal.site_alert:
   dependencies:
     - core/jquery
     - core/drupal
+    - core/drupalSettings

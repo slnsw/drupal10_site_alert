@@ -3,6 +3,7 @@
 namespace Drupal\Tests\site_alert\FunctionalJavascript;
 
 use Drupal\FunctionalJavascriptTests\WebDriverTestBase;
+use PHPUnit\Framework\AssertionFailedError;
 
 /**
  * Base class for functional JS tests for the Site Alerts module.
@@ -42,6 +43,27 @@ abstract class SiteAlertWebDriverTestBase extends WebDriverTestBase {
   protected function assertSiteAlertAppears($message) {
     $condition = 'jQuery(\'.site-alert div.text:contains("' . $message . '")\').length > 0;';
     $this->assertJsCondition($condition);
+  }
+
+  /**
+   * Checks that the alert with the given message does not appear on the page.
+   *
+   * @param string $message
+   *   The message contained in the alert that is expected to appear.
+   * @param int $timeout
+   *   (Optional) Timeout in milliseconds, defaults to 10000.
+   */
+  protected function assertSiteAlertNotAppears($message, $timeout = 10000) {
+    $condition = 'jQuery(\'.site-alert div.text:contains("' . $message . '")\').length > 0;';
+    try {
+      $this->assertJsCondition($condition, $timeout);
+    }
+    catch (AssertionFailedError $e) {
+      // The alert has not appeared, the test has passed.
+      return;
+    }
+    // The alert has unexpectedly appeared, the test has failed.
+    $this->fail();
   }
 
   /**

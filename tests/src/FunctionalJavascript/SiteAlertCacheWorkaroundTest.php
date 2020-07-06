@@ -60,8 +60,14 @@ class SiteAlertCacheWorkaroundTest extends SiteAlertWebDriverTestBase {
     // responsible for refreshing the alerts should be loaded in the page.
     $this->assertJavaScriptPresent();
 
-    // Check that the alert appears within a few seconds. Thanks to the
-    // workaround this will work regardless of the fact that the page is cached.
+    // The automatic refreshing has been disabled by setting the 'timeout' to 0,
+    // so the scheduled alert should not appear until we reload the page.
+    $this->assertSiteAlertNotAppears('Scheduled alert', 3000);
+
+    // Reload the page. Thanks to the workaround the site alert should now
+    // appear regardless of the fact that the page was cached at a moment when
+    // no alert was visible.
+    $this->drupalGet('<front>');
     $this->assertSiteAlertAppears('Scheduled alert');
 
     // Disable the alert. Now there are no more scheduled alerts, so the
