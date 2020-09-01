@@ -33,9 +33,13 @@ Simple!
 USING THE MODULE
 ----------------
 
-Enable the Site Alert module
-Add one or more site alert entities: admin/config/system/alerts
-Add the 'Site Alert' block to whichever region(s) you wish it to appear in.
-Ensure that all necessary roles have the 'administer site alerts' permission.
-(All roles can view alerts)
+- Enable the Site Alert module.
+- Ensure that all necessary roles have the 'administer site alerts' permission.
+  (All roles can view alerts).
+- Add one or more site alert entities at `admin/config/system/alerts`.
+- Ensure the site alerts you want to display in the site are 'active'. If an
+  alert is inactive it is temporarily disabled. This can be handy if you want to
+  reuse an alert again at a later moment without having to recreate it.
+- Add the 'Site Alert' block to whichever region(s) you wish it to appear in.
+
 Enjoy your exciting new site alert(s)!
