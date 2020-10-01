@@ -1,6 +1,7 @@
 name: Site Alert
 description: Allows site admins to display a site-wide alert to all users.
 package: Custom
+configure: entity.site_alert.collection
 
 type: module
 core: 8.x
