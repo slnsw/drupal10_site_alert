@@ -19,13 +19,12 @@ class SiteAlertListBuilder extends EntityListBuilder {
         'data' => $this->t('Active'),
         'field' => 'active',
         'specifier' => 'active',
-        'class' => [RESPONSIVE_PRIORITY_LOW],
+        'class' => [RESPONSIVE_PRIORITY_MEDIUM],
       ],
       'label' => [
         'data' => $this->t('Label'),
         'field' => 'label',
         'specifier' => 'label',
-        'class' => [RESPONSIVE_PRIORITY_LOW],
       ],
       'message' => [
         'data' => $this->t('Message'),
