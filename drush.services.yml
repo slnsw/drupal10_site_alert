@@ -1,0 +1,6 @@
+services:
+  site_alert.commands:
+    class: Drupal\site_alert\Commands\SiteAlertCommands
+    arguments: ['@site_alert.cli_commands']
+    tags:
+      - { name: drush.command }

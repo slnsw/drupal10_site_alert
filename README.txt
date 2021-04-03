@@ -6,7 +6,6 @@ CONTENTS OF THIS FILE
  * Using the module
 
 
-
 INTRODUCTION
 ------------
 
@@ -43,3 +42,17 @@ USING THE MODULE
 - Add the 'Site Alert' block to whichever region(s) you wish it to appear in.
 
 Enjoy your exciting new site alert(s)!
+
+
+DRUSH COMMANDS
+--------------
+
+Drush can be used to create, delete, enable and disable site alerts from the
+command line. The Drush integration requires PHP 7.1 or higher.
+
+To find out more, run the following commands:
+
+- `drush site-alert:create --help`
+- `drush site-alert:delete --help`
+- `drush site-alert:disable --help`
+- `drush site-alert:enable --help`

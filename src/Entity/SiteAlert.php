@@ -52,6 +52,15 @@ use Drupal\Core\Datetime\DrupalDateTime;
 class SiteAlert extends ContentEntityBase {
 
   /**
+   * The alert severities.
+   */
+  const SEVERITY_OPTIONS = [
+    'low' => 'Low',
+    'medium' => 'Medium',
+    'high' => 'High',
+  ];
+
+  /**
    * {@inheritdoc}
    */
   public function getActive() {
@@ -161,11 +170,7 @@ class SiteAlert extends ContentEntityBase {
 
     $fields['severity'] = BaseFieldDefinition::create('list_string')
       ->setLabel(t('Severity'))
-      ->setSetting('allowed_values', [
-        'low' => 'Low',
-        'medium' => 'Medium',
-        'high' => 'High',
-      ])
+      ->setSetting('allowed_values', self::SEVERITY_OPTIONS)
       ->setDisplayOptions('form', [
         'type' => 'options_select',
         'weight' => 2,

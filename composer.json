@@ -1,0 +1,29 @@
+{
+  "name": "drupal/site_alert",
+  "type": "drupal-module",
+  "description": "Allows site admins to display a site-wide alert to all users.",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "https://www.drupal.org/project/site_alert",
+  "authors": [
+    {
+      "name": "Cecily Borzillo",
+      "homepage": "https://www.drupal.org/u/cecrs",
+      "role": "Maintainer"
+    }
+  ],
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/site_alert",
+    "source": "http://cgit.drupalcode.org/site_alert"
+  },
+  "require-dev": {
+    "drush/drush": "^9 || ^10"
+  },
+  "extra": {
+    "drush": {
+      "services": {
+        "drush.services.yml": "^9 || ^10"
+      }
+    }
+  }
+}
