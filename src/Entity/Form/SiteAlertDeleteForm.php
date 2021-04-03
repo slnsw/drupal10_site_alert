@@ -5,7 +5,6 @@ namespace Drupal\site_alert\Entity\Form;
 use Drupal\Core\Entity\ContentEntityConfirmFormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Url;
-use Drupal\Core\Messenger\MessengerInterface;
 
 /**
  * Implements SiteAlertDeleteForm class.
