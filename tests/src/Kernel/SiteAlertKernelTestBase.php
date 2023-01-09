@@ -40,7 +40,7 @@ abstract class SiteAlertKernelTestBase extends KernelTestBase {
   /**
    * {@inheritdoc}
    */
-  protected function setUp() {
+  protected function setUp(): void {
     parent::setUp();
 
     $this->installEntitySchema('site_alert');
@@ -77,22 +77,22 @@ abstract class SiteAlertKernelTestBase extends KernelTestBase {
       switch ($matches[1]) {
         case 'past':
           $values['scheduling'] = [
-            'value' => $format_date('-3 hours'),
-            'end_value' => $format_date('-2 hours'),
+            'value' => \Drupal::service('date.formatter')->format('-3 hours'),
+            'end_value' => \Drupal::service('date.formatter')->format('-2 hours'),
           ];
           break;
 
         case 'present':
           $values['scheduling'] = [
-            'value' => $format_date('-1 hours'),
-            'end_value' => $format_date('+1 hours'),
+            'value' => \Drupal::service('date.formatter')->format('-1 hours'),
+            'end_value' => \Drupal::service('date.formatter')->format('+1 hours'),
           ];
           break;
 
         case 'future':
           $values['scheduling'] = [
-            'value' => $format_date('+2 hours'),
-            'end_value' => $format_date('+3 hours'),
+            'value' => \Drupal::service('date.formatter')->format('+2 hours'),
+            'end_value' => \Drupal::service('date.formatter')->format('+3 hours'),
           ];
           break;
       }

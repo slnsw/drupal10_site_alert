@@ -22,7 +22,7 @@ class SiteAlertStorageTest extends SiteAlertKernelTestBase {
   /**
    * {@inheritdoc}
    */
-  protected function setUp() {
+  protected function setUp(): void {
     parent::setUp();
 
     $this->siteAlertStorage = $this->entityTypeManager->getStorage('site_alert');

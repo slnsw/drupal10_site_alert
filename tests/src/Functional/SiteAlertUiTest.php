@@ -32,7 +32,7 @@ class SiteAlertUiTest extends SiteAlertTestBase {
   /**
    * {@inheritdoc}
    */
-  protected function setUp() {
+  protected function setUp(): void {
     parent::setUp();
 
     // Create and log in an administrative user.

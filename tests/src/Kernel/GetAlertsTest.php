@@ -20,7 +20,7 @@ class GetAlertsTest extends SiteAlertKernelTestBase {
   /**
    * {@inheritdoc}
    */
-  protected function setUp() {
+  protected function setUp(): void {
     parent::setUp();
 
     $this->getAlerts = $this->container->get('site_alert.get_alerts');

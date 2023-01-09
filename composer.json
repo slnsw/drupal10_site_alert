@@ -17,12 +17,12 @@
     "source": "http://cgit.drupalcode.org/site_alert"
   },
   "require-dev": {
-    "drush/drush": "^9 || ^10"
+    "drush/drush": "^9 || ^10 || ^11"
   },
   "extra": {
     "drush": {
       "services": {
-        "drush.services.yml": "^9 || ^10"
+        "drush.services.yml": "^9 || ^10 || ^11"
       }
     }
   }

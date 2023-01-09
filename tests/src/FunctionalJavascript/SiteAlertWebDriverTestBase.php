@@ -25,7 +25,7 @@ abstract class SiteAlertWebDriverTestBase extends WebDriverTestBase {
   /**
    * {@inheritdoc}
    */
-  protected function setUp() {
+  protected function setUp(): void {
     parent::setUp();
 
     // Enable page caching.
@@ -85,7 +85,7 @@ abstract class SiteAlertWebDriverTestBase extends WebDriverTestBase {
    */
   protected function assertSiteAlertVisible($message) {
     $selector = 'div:contains("' . $message . '")';
-    $this->assertElementPresent($selector);
+    $this->assertSession()->elementExists($selector);
   }
 
   /**
@@ -96,7 +96,7 @@ abstract class SiteAlertWebDriverTestBase extends WebDriverTestBase {
    */
   protected function assertSiteAlertNotVisible($message) {
     $selector = 'div:contains("' . $message . '")';
-    $this->assertElementNotPresent($selector);
+    $this->assertSession()->elementNotExists($selector);
   }
 
   /**
@@ -114,28 +114,28 @@ abstract class SiteAlertWebDriverTestBase extends WebDriverTestBase {
    * Asserts that the site alert block is present on the page.
    */
   protected function assertSiteAlertBlockPresent() {
-    $this->assertElementPresent('#block-site-alert-block');
+    $this->assertSession()->elementExists('#block-site-alert-block');
   }
 
   /**
    * Asserts that the site alert block is not present on the page.
    */
   protected function assertSiteAlertBlockNotPresent() {
-    $this->assertElementNotPresent('#block-site-alert-block');
+    $this->assertSession()->elementNotExists('#block-site-alert-block');
   }
 
   /**
    * Asserts that the JavaScript code to refresh the alerts is present.
    */
   protected function assertJavaScriptPresent() {
-    $this->assertElementPresent('script[src*="site_alert.js"]');
+    $this->assertSession()->elementExists('script[src*="site_alert.js"]');
   }
 
   /**
    * Asserts that the JavaScript code to refresh the alerts is present.
    */
   protected function assertJavaScriptNotPresent() {
-    $this->assertElementNotPresent('script[src*="site_alert.js"]');
+    $this->assertSession()->elementNotExists('script[src*="site_alert.js"]');
   }
 
 }

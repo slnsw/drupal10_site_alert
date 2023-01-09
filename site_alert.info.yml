@@ -4,8 +4,7 @@ package: Custom
 configure: entity.site_alert.collection
 
 type: module
-core: 8.x
-core_version_requirement: ^8 || ^9
+core_version_requirement: ^8 || ^9 || ^10
 
 dependencies:
   - drupal:datetime_range
