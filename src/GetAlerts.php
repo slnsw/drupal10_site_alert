@@ -35,7 +35,7 @@ class GetAlerts implements GetAlertsInterface {
   public function getActiveAlertIds() {
     $now = $this->dateNow();
 
-    $query = $this->getStorage()->getQuery();
+    $query = $this->getStorage()->getQuery()->accessCheck(TRUE);
 
     $start_value = $query
       ->orConditionGroup()

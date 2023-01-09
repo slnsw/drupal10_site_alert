@@ -171,7 +171,7 @@ class CliCommands implements CliCommandsInterface {
     $site_alerts = [];
     if (!empty($label)) {
       $storage = $this->entityTypeManager->getStorage('site_alert');
-      $query = $storage->getQuery();
+      $query = $storage->getQuery()->accessCheck(FALSE);
       $query->condition('label', $label, '=');
       if ($active !== NULL) {
         $query->condition('active', $active);
